@@ -2,39 +2,41 @@
 ```bash
 touch foo.txt
 
-git stage foo.txt                             # Stage
-git mv foo.txt bar.txt                        # Rename
-git rm -f bar.txt                             # Remove
+git stage foo.txt                                # Stage
+git mv foo.txt bar.txt                           # Rename
+git rm -f bar.txt                                # Remove
 
 touch foo.txt
-git stage foo.txt                             # Stage
-git reset foo.txt                             # Unstage
+git stage foo.txt                                # Stage
+git reset foo.txt                                # Unstage
 
-git stage foo.txt                             # \
-                                              #  | -> git commit -m "message" -a
-git commit -m "message"                       # /
+git stage foo.txt                                # \
+                                                 #  | -> git commit -m "message" -a
+git commit -m "message"                          # /
+```
+
+## Reset
+```bash
+git reset -- file0 file1 file2                  # Reset staged files (--mixed deprecated)
 ```
 
 ```bash
-git reset -- file0 file1 file2               # Reset staged files (--mixed deprecated)
+git reset --soft COMMITHASH                     # Reset to specified commit
+git reset --soft HEAD^                          # Reset last commit
+git reset --soft HEAD~1                         # Reset last commit
+git reset --soft HEAD^^                         # Reset last two commit
+git reset --soft HEAD~2                         # Reset last two commit
 ```
 
 ```bash
-git reset --soft COMMITHASH                  # Reset to specified commit
-git reset --soft HEAD^                       # Reset last commit
-git reset --soft HEAD~1                      # Reset last commit
-git reset --soft HEAD^^                      # Reset last two commit
-git reset --soft HEAD~2                      # Reset last two commit
+git reset --hard                                # Reset all changes
 ```
 
 ```bash
-git reset --hard                             # Reset all changes
-```
+git pull -v
 
-```bash
-git pull --verbose
-
-git fetch --all --prune --verbose             # git remote update origin --prune
+git fetch --all --verbose | git fetch --all -v  # git remote update origin --prune
+git fetch --prune --verbose | git fetch -p -v   # git remote update origin --prune
 ```
 
 ```bash
