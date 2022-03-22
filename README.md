@@ -1,17 +1,13 @@
 ## Basics
 ```bash
-touch foo.txt
+touch file
 
-git stage foo.txt                                # Stage
-git mv foo.txt bar.txt                           # Rename
-git rm -f bar.txt                                # Remove
-
-touch foo.txt
-git stage foo.txt                                # Stage
-git reset foo.txt                                # Unstage
+git stage file -v | git add file -v              # Put file to stage
+git mv file file.tmp                             # Rename
+git rm -f file.tmp                               # Remove
 
 git stage foo.txt                                # \
-                                                 #  | -> git commit -m "message" -a
+                                                 #  | -> git commit -am "message"
 git commit -m "message"                          # /
 ```
 
@@ -21,7 +17,7 @@ git reset -- file0 file1 file2                  # Reset staged files (--mixed de
 ```
 
 ```bash
-git reset --soft COMMITHASH                     # Reset to specified commit
+git reset --soft COMMIT_HASH                    # Reset to specified commit
 git reset --soft HEAD^                          # Reset last commit
 git reset --soft HEAD~1                         # Reset last commit
 git reset --soft HEAD^^                         # Reset last two commit
@@ -32,19 +28,21 @@ git reset --soft HEAD~2                         # Reset last two commit
 git reset --hard                                # Reset all changes
 ```
 
+## Pull / Fetch
 ```bash
-git pull -v
+git pull -vvvv
 
-git fetch --all --verbose | git fetch --all -v  # git remote update origin --prune
-git fetch --prune --verbose | git fetch -p -v   # git remote update origin --prune
+git fetch --all -vvv
+git fetch --prune -vvv
 ```
 
+## Logs
 ```bash
-git log
-git show xxxxx
+git log COMMIT_HASH
+git show COMMIT_HASH
 
-git revert xxxxx
-git revert xxxxx
+git revert COMMIT_HASH
+git revert COMMIT_HASH
 ```
 
 ## Stash
@@ -67,19 +65,14 @@ git stash store -m "test" xxxxx
 
 ## Branch
 ```bash
-git switch bname                        # Switch to branch
+git branch
+
+git branch -a -vvv                      # Show all branches
+
 git checkout bname                      # Switch to branch
-
-git switch -c bname                     # Create new branch from current
 git checkout -b bname                   # Create new branch from current
-
-git switch -c bname origin/bname        # Create new branch from specified branch
 git checkout -b bname origin/bname      # Create new branch from specified branch
-
-git switch -c 2.6.2 tags/v2_6_2         # Create new branch from specified tag
 git checkout -b 2.7.2 tags/v2_7_2       # Create new branch from specified tag
-
-git branch -vv                          # Show push origin
 ```
 
 ```bash
@@ -89,11 +82,9 @@ git branch -u origin/bname              # Set upstream
 
 ## Remote
 ```bash
-git remote -v
+git remote -vvv
 
 git remote show origin
-
-git remote update origin --prune        # same as -> git fetch --all --prune --verbose
 
 git remote rename origin test
 git remote rename test origin
