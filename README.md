@@ -25,6 +25,7 @@ git reset --soft HEAD^                       # Reset last commit
 git reset --soft HEAD~1                      # Reset last commit
 git reset --soft HEAD^^                      # Reset last two commit
 git reset --soft HEAD~2                      # Reset last two commit
+```
 
 ```bash
 git reset --hard                             # Reset all changes
