@@ -17,9 +17,16 @@ git commit -m "message"                       # /
 
 ```bash
 git reset -- file0 file1 file2               # Reset staged files (--mixed deprecated)
+```
+
+```bash
 git reset --soft COMMITHASH                  # Reset to specified commit
 git reset --soft HEAD^                       # Reset last commit
+git reset --soft HEAD~1                      # Reset last commit
 git reset --soft HEAD^^                      # Reset last two commit
+git reset --soft HEAD~2                      # Reset last two commit
+
+```bash
 git reset --hard                             # Reset all changes
 ```
 
