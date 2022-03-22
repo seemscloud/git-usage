@@ -16,10 +16,10 @@ git commit -m "message"                       # /
 ```
 
 ```bash
-git reset --soft
-git reset --mixed
-
-git reset --hard
+git reset --mixed                            # Reset staged files
+git reset --soft HEAD^                       # Reset last commit
+git reset --soft HEAD^^                      # Reset last two commit
+git reset --hard                             # 
 ```
 
 ```bash
