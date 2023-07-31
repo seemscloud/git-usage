@@ -99,3 +99,16 @@ git remote get-url --push origin
 git remote set-url --add origin gi2t@github.com:theanotherwise/git.git
 git remote set-url --delete origin git2@github.com:theanotherwise/git.git
 ```
+
+## Pull from master to Branch
+
+```bash
+git checkout master
+git pull
+git fetch --all
+git fetch --prune
+
+git checkout feature/my-brach
+git fetch origin
+git merge origin/master
+```
