@@ -103,12 +103,13 @@ git remote set-url --delete origin git2@github.com:theanotherwise/git.git
 ## Pull from master to Branch
 
 ```bash
-git checkout master
-git pull
-git fetch --all
-git fetch --prune
+SOURCE_BRANCH="main"
+TARGET_BRANCH="feature/test"
 
-git checkout feature/my-brach
+git checkout "${SOURCE_BRANCH}"
+git pull
+
+git checkout ${TARGET_BRANCH}
 git fetch origin
-git merge origin/master
+git merge origin/${SOURCE_BRANCH}
 ```
